@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      form {
+        padding: 10px;
+        display: grid;
+        gap: 10px;
+        width: 400px;
+        height: 200px;
+      }
+      input {
+        font-size: 30px;
+        padding-left: 20px;
+        outline: none;
+      }
+      input:user-invalid {
+        border: 2px solid red;
+        background-image: url("https://static.vecteezy.com/system/resources/previews/044/448/989/non_2x/round-red-cross-mark-free-png.png");
+        background-size: 30px;
+        background-position: right;
+        background-repeat: no-repeat;
+      }
+      input:user-valid {
+        border: 2px solid green;
+        background-image: url("https://static.vecteezy.com/system/resources/thumbnails/017/350/123/small_2x/green-check-mark-icon-in-round-shape-design-png.png");
+        background-size: 40px;
+        background-position: right;
+        background-repeat: no-repeat;
+      }
+      /* input::placeholder{
+        background-color: red;
+      } */
+
+      button {
+        background-color: rgb(93, 93, 245);
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+      }
+      input:invalid ~ button {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="email" required placeholder="Enter Your Email" />
+      <input
+        placeholder="Enter Your Password"
+        type="password"
+        required
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}"
+        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+      />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
